@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import TrackingNumber
-from .forms import FeedBack
+from .forms import FeedBackForm
 from uuid import UUID
 #from django.core.mail import send_mail
 #from django.conf import settings
@@ -58,15 +58,19 @@ def tracking(request):
 # Feedback form """
 
 def feedback(request):
-    if request.method == 'POST':
-        form = FeedBack(request.POST)
+    if request.method == "POST":
+        form = FeedBackForm(data=request.POST)
         if form.is_valid():
+            name = form.cleaned_data.get('name')
+            email = form.cleaned_data.get('email')
+            phone = form.cleaned_data.get('phone')
+            subject = form.cleaned_data.get('subject')
+            message = form.cleaned_data.get('message')
             form.save()
-        return redirect('success')
+            return redirect('success')
     else:
-        form = FeedBack()
-    context = {'form': form}
-    return render(request, 'pages/contact.html', context)
+        form = FeedBackForm()
+    return render(request, 'pages/contact.html', context={'form': form})
 
 
 def feedsuccess(request):

@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Delivery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Delivery',
+        'NAME': 'spectre',
         'USER': 'spectre',
         'PASSWORD': 'jailbreak',
         'HOST': 'delivery.c9audvb3haph.us-east-1.rds.amazonaws.com',

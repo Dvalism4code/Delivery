@@ -1,0 +1,82 @@
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="{% static 'courier/css/style.css' %}">
+        <script src="https://kit.fontawesome.com/3b97c8a86d.js" crossorigin="anonymous"></script>
+        <script src="{% static 'courier/js/main.js' %}"></script>
+        {% if title %}
+        <title>Vancour Express-{{title}}</title>
+    {% else %}
+        <title>Ship a Parcel, tracking, courier pickup with Vancour EXpress</title>
+    {% endif %}
+    </head>
+    <body>
+        <header class="site-header">
+            <div class="nav-content">
+                <nav class="top-nav-bar">
+                        <ul>
+                            <li>
+                                <a href="{% url 'courier-home' %}" >
+                                <img src="{% static 'courier/media/logo.png' %}" class="logo">
+                            </a></li>
+                            <li class="move">
+                                <a href="mailto:vancourexpress@gmail.com"><small>support@vancourexpress.com |</small></a>
+                                <a href="{% url 'contact' %}"><small>Help and Support | </small></a>
+                            <a href="#"> English<img src="{% static 'courier/media/america.png' %}" width="30" height="20" class="flag"></a>
+                        </li>
+                        </ul>
+                </nav>
+                <hr>
+                <nav class="nav-bar" id="top-nav">
+                  
+                        <a href="{% url 'courier-home' %}" class="active">Home</a>
+                        <a href="{% url 'about-page' %}">About us</a>
+                        <a href="{% url 'track-page' %}">Track & Trace</a>
+                        <a href="{% url 'contact' %}">Contact</a>
+                       
+            </nav>
+            </div>
+        </header>
+        <div class="track-img">
+            <h2>Tracking Details</h2>
+          </div>
+          <div class="headers">
+          <nav class="track-nav">
+            <ul>
+                <li><a href="{% url 'courier-home' %}">Home /</a></li>
+                <li><a href="{% url 'about-page' %}">About Us</a></li>
+            </ul>
+          </nav>
+     </div>
+      <main class="main-track">
+       <div class="track-details">
+        <form action="{% url 'track-page' %}" enctype="application/x-www-form-urlencoded" method="POST" id="myForm" onsubmit="handleSubmit(event)">
+            {% csrf_token %}
+          <input type="text" id="uuidInput" name="input" class="input" placeholder="Enter your tracking id" required>
+            
+        <button type="submit" class="btn-btn">Track</button>
+        </form>
+      
+       </div>
+      </main>
+      
+       <!--follow us-->
+       <footer class="footer-track-2">
+            <small>
+                <i>FOLLOW US</i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-thin fa-envelope"></i>
+            <i>cookie settings</i>
+            <i>2023  Deutsche Post AG - All rights reserved </i>
+       </footer>
+    </body>
+    </html>

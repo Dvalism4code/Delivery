@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'courier/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/3b97c8a86d.js" crossorigin="anonymous"></script>
+    <script src="{% static 'courier/js/main.js' %}"></script>
+    {% if title %}
+    <title>PrimeXpress-{{title}}</title>
+{% else %}
+    <title>Ship a Parcel, tracking, courier pickup with vancourexpress</title>
+{% endif %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-content">
+            <nav class="top-nav-bar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'courier-home' %}" >
+                            <img src="{% static 'courier/media/logo.png' %}" class="logo">
+                        </a></li>
+                        <li class="move">
+                            <a href="mailto:vancourexpress@gmail.com"><small>support@vancourexpress.com |</small></a>
+                            <a href="{% url 'contact' %}"><small>Help and Support | </small></a>
+                        <a href="#"> English<img src="{% static 'courier/media/america.png' %}" width="30" height="20" class="flag"></a>
+                    </li>
+                    </ul>
+            </nav>
+            <hr>
+            <nav class="nav-bar" id="top-nav">
+              
+                    <a href="{% url 'courier-home' %}" class="active">Home</a>
+                    <a href="{% url 'about-page' %}">About us</a>
+                    <a href="{% url 'track-page' %}">Track</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                  
+        </nav>
+        </div>
+    </header>
+    <div class="about-banner">
+       <div class="about-banner-img">
+        <img src="{% static 'courier/media/about.jpg' %}">
+       </div>
+    </div>
+    <div class="about-headers">
+        <nav class="about-nav">
+          <ul>
+              <li><a href="{% url 'courier-home' %}">Home /</a></li>
+              <li><a href="{% url 'contact' %}">Contact Us</a></li>
+          </ul>
+        </nav>
+   </div>
+   <main>
+    <div class="about-main">
+        <h3>VANCOUR EXPRESS LOGISTICS FOR THE CONNECTED AGE.</h3>
+        <p>When Adrian Dalsey, Larry Hillblom and Robert Lynn founded DHL in 1969, they didn’t know they would revolutionize the world of logistics. Today, VANCOUR EXPRESS is the world’s leading logistics company. Our 380,000 people in over 220 countries and territories work every day to help you cross borders, reach new markets and grow your business. Or simply send a letter to your loved ones.
+        </p>
+    </div>
+    <div class="main-container">
+        <div>
+           <div class="main-description">
+            <h3>380,000</h3>
+            <p>PEOPLE WORKING AT VANCOUR XPRESS</p>
+           </div>
+        </div>
+        <div>
+            <div class="main-description-2">
+             <h3>OVER 220</h3>
+             <p>COUNTRIES AND TERRITORIES SERVED</p>
+            </div>
+         </div>
+         <div>
+            <div class="main-description">
+             <h3>1,818,000,000</h3>
+             <p>PARCELS DELIVERED PER YEAR</p>
+            </div>
+         </div>
+</div>
+   </main>
+   <div class="dhl-life">
+    <h3>Life inside VANCOUR EXPRESS</h3>
+    <img src="{% static 'courier/media/life.jpg'%}">
+    <p>We are an international team of over 380,000 shipping professionals, united by a passion for logistics. And we work in a unique environment. VANCOUR EXPRESS is as innovative as a start-up, with the power of an international organization.</p>
+    <p>Learn More</p>
+   </div>
+   <div class="dhl-post">
+    <div class="dhl-post-img">
+        <img src="{% static 'courier/media/dutch.jpg' %}">
+    </div>
+    <div class="dhl-img-description">
+        <h3>DEUTSCHE POST VANCOUR EXPRESS GROUP</h3>
+        <p>We're part of the world's leading mail and logistics group</p>
+        <p>Find Out More</p>
+    </div>
+   </div>
+   <div class="dhl-partner">
+    <div class="partner-img">
+        <img src="{% static 'courier/media/partner.jpg' %}" alt="racing car">
+        <div class="partner-img-desc">
+            <p>Partnerships</p>
+            <h3>VANCOUR EXPRESS Is the Specialist fo Delivering Global Events Around the World</h3>
+            <a href="#">Find Out More</a>
+        </div>
+    </div>
+    <div class="partner-img">
+        <img src="{% static 'courier/media/sustain.jpg' %}" alt="courier dispatcher">
+        <div class="partner-img-desc">
+            <p>Sustainability</p>
+            <h3>We Strive for a Consistent Balance Between Ecology, Economy and Society</h3>
+            <a href="#">Find Out More</a>
+    </div>
+   </div>
+   </div>
+   
+  
+   <footer class="footer-1">
+    <div class="footer-info">
+        <p>CONTACT AND SUPPORT</p>
+        <ul>
+            <li><a href="#"><small>Help and Support</small></a></li>
+            <li><a href="#"><small>FAQs</small></a></li>
+            <li><a href="#"><small>Contact Us</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>LEGAL</p>
+        <ul>
+            <li><a href="#"><small>Terms and Condition</small></a></li>
+            <li><a href="#"><small>Privacy Notice</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>ALERTS</p>
+        <ul>
+            <li><a href="#"><small>Fraud Awareness</small></a></li>
+            <li><a href="#"><small>Fraud Support</small></a></li>
+            <li><a href="#"><small>Important Information</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>VANCOUR GROUP</p>
+        <ul>
+            <li><a href="#"><small>About US</small></a></li>
+            <li><a href="#"><small>Press</small></a></li>
+            <li><a href="#"><small>Careers</small></a></li>
+            <li><a href="#"><small>Legal Notice</small></a></li>
+        </ul>
+    </div>
+   </footer>
+   <footer class="footer-about-1">
+        <small>
+            <i>FOLLOW US</i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-thin fa-envelope"></i>
+        <i>cookie settings</i>
+        <i>2023  Deutsche Post AG - All rights reserved </i>
+        </small>
+   </footer> 
+</body>
+</html>

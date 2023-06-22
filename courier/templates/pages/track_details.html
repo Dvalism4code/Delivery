@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'courier/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/3b97c8a86d.js" crossorigin="anonymous"></script>
+    <script src="{% static 'courier/js/main.js' %}"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ settings.GOOGLE_MAPS_API_KEY }}"></script>
+    <!--Map scripts-->
+    
+    {% if title %}
+    <title>Vancour express-{{title}}</title>
+{% else %}
+    <title>Ship a Parcel, tracking, courier pickup with Vancour express</title>
+{% endif %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-content">
+            <nav class="top-nav-bar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'courier-home' %}" >
+                            <img src="{% static 'courier/media/logo.png' %}" class="logo">
+                        </a></li>
+                        <li class="move">
+                            <a href="mailto:vancourexpress@gmail.com"><small>support@vancourexpress.com |</small></a>
+                            <a href="{% url 'contact' %}"><small>Help and Support | </small></a>
+                        <a href="#"> English<img src="{% static 'courier/media/america.png' %}" width="30" height="20" class="flag"></a>
+                    </li>
+                    </ul>
+            </nav>
+            <hr>
+            <nav class="nav-bar" id="top-nav">
+              
+                    <a href="{% url 'courier-home' %}" class="active">Home</a>
+                    <a href="{% url 'about-page' %}">About us</a>
+                    <a href="{% url 'track-page' %}">Track & Trace</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                    
+        </nav>
+        </div>
+    </header>
+    <br>
+    <div class="header-info">
+        <h2>Shipment Details / Information</h2>
+        <div class="track-nav-bar">
+            <div><p>Welcome &#9002; <a href="{% url 'courier-home' %}">Back to Home</a></div>
+            <div>
+                <h3>Tracking No: {{tracking.unique_id}}
+            </div>
+    </div>
+   <main>
+    <div class="customer-info-1">
+        <div class="sender-info">
+            <table>
+                <tr>
+                    <th>Sender's Details</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{tracking.sender_name}}</td>
+                </tr>
+                <tr>
+                    <td>Contact:</td>
+                    <td>{{tracking.sender_phone}}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{tracking.sender_email}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{tracking.sender_address}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="receiver-info">
+            <table>
+                <tr>
+                    <th>Receiver's Details</th>
+                    <th>&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>{{tracking.receiver_name}}</td>
+                </tr>
+                <tr>
+                    <td>Contact:</td>
+                    <td>{{tracking.receiver_phone}}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>{{tracking.receiver_email}}</td>
+                </tr>
+                <tr>
+                    <td>Address</td>
+                    <td>{{tracking.receiver_address}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   </main>
+
+   <!--more details data-->
+   <div class="customer-info">
+    <div class="customer-details">
+        <table class="stripes">
+            <tr>
+                <th>More Details</th>
+                <th></th>
+            </tr>
+            <tr>
+                <td>Parcel Description</td>
+                <td>{{tracking.parcel_description}}</td>
+            </tr>
+            <tr>
+                <td>Dispatch Location</td>
+                <td>{{tracking.dispatch_location}}</td>
+            </tr>
+            <tr>
+                <td>Courier Status</td>
+                <td>{{tracking.status}}</td>
+            </tr>
+            <tr>
+                <td>Dispatch Date</td>
+                <td>{{tracking.dispatch_date}}</td>
+            </tr>
+            <tr>
+                <td>Estimated Delivery Date</td>
+                <td>{{tracking.delivery_date}}</td>
+            </tr>
+            <tr>
+                <td>Current Location</td>
+                <td>
+                    <div class="scroll-container">
+                        <div class="text">{{tracking.current_location}}</div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+   </div>
+ <!--Parcel Location- on goole map-->
+ <div id="map"></div>
+ <script async defer src="https://maps.googleapis.com/maps/api/js?key={{ settings.GOOGLE_MAPS_API_KEY }}&callback=initMap"></script>
+ 
+   <!--follow us-->
+   <footer class="track-footer">
+    <small>
+        <i>FOLLOW US</i>
+    <i class="fa-brands fa-twitter"></i>
+    <i class="fa-brands fa-facebook"></i>
+    <i class="fa-brands fa-instagram"></i>
+    <i class="fa-thin fa-envelope"></i>
+    <i>cookie settings</i>
+    <i>2023  Deutsche Post AG - All rights reserved </i>
+    </small>
+   </footer>
+</body>
+</html>

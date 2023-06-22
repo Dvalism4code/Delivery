@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'courier/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/3b97c8a86d.js" crossorigin="anonymous"></script>
+    <script src="{% static 'courier/js/main.js' %}"></script>
+    {% if title %}
+    <title>Vancour Express-{{title}}</title>
+{% else %}
+    <title>Ship a Parcel, tracking, courier pickup with Vancour Express</title>
+{% endif %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-content">
+            <nav class="top-nav-bar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'courier-home' %}" >
+                            <img src="{% static 'courier/media/logo.png' %}" class="logo">
+                        </a></li>
+                        <li class="move">
+                        <a href="mailto:vancourexpress@gmail.com"><small>support@vancourexpress.com |</small></a>
+                        <a href="{% url 'contact' %}"><small>Help and Support | </small></a>
+                        <a href="#"> English<img src="{% static 'courier/media/america.png' %}" width="30" height="20" class="flag"></a>
+                    </li>
+                    </ul>
+            </nav>
+            <hr>
+            <div class="navbar">
+                <input type="checkbox" id="navbar-toggle">
+                    <label for="navbar-toggle" class="burger">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </label>
+                <nav class="nav-bar" id="top-nav">
+              
+                    <a href="{% url 'courier-home' %}" class="active">Home</a>
+                    <a href="{% url 'about-page' %}">About us</a>
+                    <a href="{% url 'track-page' %}">Track</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                   
+        </nav>
+            </div>
+        </div>
+    </header>
+
+    <!--End of header-->
+    <main class="main-head">
+        <div class="content-img">
+            <div class="container">
+                <div class="site-name">
+                    <div class="site-name-info">
+                    <small>welcome to </small>
+                    <h3>VANCOUR EXPRESS </h3>
+                    <p>Over 50 years of international shipping expertise</p>
+                    </div>
+                </div>
+                <div class="quote-info">
+                    <h3>Get Started Now</h3>
+                    <div class="time-quote">
+                    <p>Create a New Shipment</p>
+                    <p>Get a Rate and Time Quote</p>
+                    <p>Schedule a Pickup </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="track-container">
+        <div class="get-quote">
+            <p>Get quote</p>
+            <p>Delivery services</p>
+        </div>
+        <div class="track-content">
+            <form action="{% url 'courier-track' %}" enctype="application/x-www-form-urlencoded" method="POST"  id="myForm" onsubmit="handleSubmit(event)">
+                {% csrf_token %}
+                
+                    <input type="text" id="uuidInput" name="input" placeholder="Enter your tracking id" class="input" required>
+             
+                <button class="btn" type="submit">Track</button>
+            </form>
+        </div>
+    </div>
+    <br>
+   <!--Image slider starts-->
+   <div class="slider">
+    <div class="slides">
+    <!--radio button start-->
+    <input type="radio" name="radio-btn" id="radio1">
+    <input type="radio" name="radio-btn" id="radio2">
+    <input type="radio" name="radio-btn" id="radio3">
+    <input type="radio" name="radio-btn" id="radio4">
+    <!--radio button ends-->
+    <!--slide images start-->
+    <div class="slide first">
+        <div class="img">
+            <img src="{% static 'courier/media/prepare.png'%}" alt="">
+           </div>
+        <div class="img-description">
+            <h3>Prepare Your Package for the Journey</h3>
+            <p>Get tips and advice for packing your shipment.
+            </p>
+        </div> 
+
+        <div class="img">
+            <img src="{% static 'courier/media/impress.png'%}" alt="">
+           </div>
+        <div class="img-description">
+            <h3>Import Express</h3>
+            <p>with VANCOUR EXPRESS can you prepay for imported items to be delivered right to your door from anywhere in the world.</p>
+        </div> 
+
+        <div class="img">
+            <img src="{% static 'courier/media/woman.jpg'%}" alt="">
+           </div>
+        <div class="img-description">
+            <h3>We Know Customs</h3>
+            <p>Shipping to over 200 countries and territories – we’ve established a wealth of customs expertise</p>
+        </div> 
+
+        <div class="img">
+            <img src="{% static 'courier/media/collect_package.jpg'%}" alt="">
+           </div>
+        <div class="img-description">
+            <h3>VANCOUR Express Delivers</h3>
+            <p>With international reach and local teams, we offer time definite door-to-door delivery around the</p>
+        </div> 
+    </div>
+    <!--slide images ends-->
+    <!--automatic navigation start-->
+    <div class="navigation-auto">
+        <div class="auto-btn1"></div>
+        <div class="auto-btn2"></div>
+        <div class="auto-btn3"></div>
+        <div class="auto-btn4"></div>
+    </div>
+    <!--automatic navigation end-->
+    </div>
+    <!--manual navigation start-->
+    <div class="manual-navigation">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+        <label for="radio4" class="manual-btn"></label>
+    </div>
+    <!--manual navigation end-->
+   </div>
+   <!--Imges slider ends-->
+    <!--End of animation-->
+   <div class="one-solution">
+    <div class="one-img">
+        <img src="{% static 'courier/media/dhl.png' %}"> 
+        <span>
+            <h3>One Solution, Many Benefits</h3>
+        <p>VANCOUR EXPRESS+ makes it easier than ever to ship online, get quotes, schedule pickups, find locations, track shipments and more!</p>
+        </span>
+       
+   </div>
+   <div class="section">
+    <div class="section-img">
+        <img src="{% static 'courier/media/ship.jpg' %}">
+        <div class="section-img-info">
+        <h3>Ship Like a Pro</h3>
+        <p>Get access to powerful and time-saving customizable features found only in VANCOUR EXPRESS+. </p>
+        <p class="space">Create a Login and Ship</p>
+        </div>
+        </div>
+    <div class="section-img">
+        <img src="{% static 'courier/media/dhl-bus.jpg' %}">
+        <div class="section-img-info">
+        <h3>VANCOUR EXPRESS for Business</h3>
+        <p>Get preferred rates, billing options and other great benefits of having a VANCOUR Express account!  </p>
+        <p class="space">Open an Account</p>
+        </div>
+     </div>
+    <div class="section-img">
+        <img src="{% static 'courier/media/custom.png' %}">
+        <div class="section-img-info">
+        <h3>Customs Regulatory Updates</h3>
+        <p>Stay up-to-date on important customs regulations from around the world!  </p>
+        <p class="space">View Latest Updates</p>
+        </div>
+    </div>
+   </div>
+
+   <div class="section2">
+    <h3>Express Delivery Services and International Shipping</h3>
+    <p>Fast. Door-to-Door. Courier Delivered.</p>
+    <p>When you ship with VANCOUR Express- you're shipping with specialists in international shipping and courier delivery services! With our wide range of express parcel and package services, along with shipping and tracking solutions to fit your needs – VANCOUR Express can deliver!
+    </p>
+   </div>
+   <br>
+ 
+   <footer class="footer-1">
+    <div class="footer-info">
+        <p>CONTACT AND SUPPORT</p>
+        <ul>
+            <li><a href="#"><small>Help and Support</small></a></li>
+            <li><a href="#"><small>FAQs</small></a></li>
+            <li><a href="#"><small>Contact Us</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>LEGAL</p>
+        <ul>
+            <li><a href="#"><small>Terms and Condition</small></a></li>
+            <li><a href="#"><small>Privacy Notice</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>ALERTS</p>
+        <ul>
+            <li><a href="#"><small>Fraud Awareness</small></a></li>
+            <li><a href="#"><small>Fraud Support</small></a></li>
+            <li><a href="#"><small>Important Information</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>VANCOUR GROUP</p>
+        <ul>
+            <li><a href="#"><small>About US</small></a></li>
+            <li><a href="#"><small>Press</small></a></li>
+            <li><a href="#"><small>Careers</small></a></li>
+            <li><a href="#"><small>Legal Notice</small></a></li>
+        </ul>
+    </div>
+   </footer>
+   <footer class="footer-last">
+        <small>
+            <i>FOLLOW US</i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-thin fa-envelope"></i>
+        <i>cookie settings</i>
+        <i>2023  Deutsche Post AG - All rights reserved </i>
+        </small>
+   </footer> 
+</body>
+</html>

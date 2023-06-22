@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'courier/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/3b97c8a86d.js" crossorigin="anonymous"></script>
+    <script src="{% static 'courier/js/main.js' %}"></script>
+    {% if title %}
+    <title>Vancour Express-{{title}}</title>
+{% else %}
+    <title>Ship a Parcel, tracking, courier pickup with Vancour Express</title>
+{% endif %}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-content">
+            <nav class="top-nav-bar">
+                    <ul>
+                        <li>
+                            <a href="{% url 'courier-home' %}" >
+                            <img src="{% static 'courier/media/logo.png' %}" class="logo">
+                        </a></li>
+                        <li class="move">
+                            <a href="mailto:vancourexpress@gmail.com"><small>support@vancourexpress.com |</small></a>
+                            <a href="{% url 'contact' %}"><small>Help and Support | </small></a>
+                        <a href="#"> English<img src="{% static 'courier/media/america.png' %}" width="30" height="20" class="flag"></a>
+                    </li>
+                    </ul>
+            </nav>
+            <hr>
+            <nav class="nav-bar" id="top-nav">
+              
+                    <a href="{% url 'courier-home' %}" class="active">Home</a>
+                    <a href="{% url 'about-page' %}">About us</a>
+                    <a href="{% url 'track-page' %}">Track</a>
+                    <a href="{% url 'contact' %}">Contact</a>
+                  
+        </nav>
+        </div>
+    </header>
+<body>
+    <div class="track-img">
+        <h2>Contact Us</h2>
+      </div>
+      <div class="headers">
+      <nav class="track-nav">
+        <ul>
+            <li><a href="{% url 'courier-home' %}">Home &#9002;</a></li>
+            <li><a href="{% url 'about-page' %}">About Us</a></li>
+        </ul>
+      </nav>
+ </div>
+ <div class="contact-container">
+    <div class="contact">
+        <div class="contact-details">
+            <h3>Email Address</h3>
+            <p>Send mail asap anytime</p>
+            <p>support@vancourexpress.com</p>
+        </div>
+        <div class="contact-details">
+            <h3>Phone Number</h3>
+            <p>call us asap anytime</p>
+            <p>+1(629)0753536545</p>
+        </div>
+        <div class="contact-details">
+            <h3>Office Address</h3>
+            <p>Sent mail asap anytime</p>
+            <p>B2. Miranda City Tower New York, US</p>
+        </div>
+    </div>
+    <br>
+    <!--FeedBack Form-->
+    <div class="form">
+        <div class="fill-form">
+            <p>Fill The Form</p>
+            <h3>Get In Touch</h3>
+        </div>
+        <form action="{% url 'contact' %}" method="POST" enctype="application/x-www-form-urlencoded" onsubmit="validateContactForm()">
+            {% csrf_token %}
+            <div class="form-data">
+                <div class="form-header">
+                    <label for="{{form.name.id_for_label}}">Full Name</label>
+                    <div class="form-fields">
+                        <input type="{{form.field.widget.input_name}}" name="{{form.name.html_name}}" placeholder="Enter your full name" class="form-input" required>
+                    </div>
+                </div>
+                <div class="form-header">
+                    <label for="{{form.email.id_for_label}}">Email</label>
+                    <div class="form-fields">
+                        <input type="{{form.field.widget.input_type}}" name="{{form.email.html_name}}" placeholder="Enter Email" class="form-input" required>
+                    </div>
+                </div>
+               </div>
+               <div class="form-data">
+                <div class="form-header">
+                    <label for="{{form.subject.id_for_label}}">Subject</label>
+                    <div class="form-fields">
+                        <input type="{{form.field.widget.input_type}}" name="{{form.subject.html_name}}" placeholder="Enter subject" class="form-input" required>
+                    </div>
+                </div>
+                <div class="form-header">
+                    <label for="{{form.phone.id_for_label}}">Phone</label>
+                    <div class="form-fields">
+                        <input type="{{form.field.widget.input_type}}" name="{{form.phone.html_name}}" placeholder="Enter Number" class="form-input" required>
+                    </div>
+                </div>
+               </div>
+               <!--message contents-->
+               <div class="form-data">
+                <div class="form-header">
+                    <label for="{{ form.message.id_for_label }}">message</label>
+                    <div class="form-fields fields">
+                       <input type="{{form.field.widget.input_type}}" name="{{form.message.html_name}}" class="form-input expand-msg" placeholder="Enter your message" required>
+                    </div>
+                </div>
+               </div>
+               <button type="submit" class="form-btn">Get a Quote</button>
+        </form>
+       <!--End of Feedback form-->
+    <div class="branch">
+        <h3>Our Branches</h3>
+        <h1>CONTACT US</h1>
+    </div>
+   <!--office addresses-->
+   <div class="office-address">
+    <div class="address-img">
+        <img src="{% static 'courier/media/america.png' %}" alt="american flag" width="100px" height="100px">
+        <div class="address-description">
+            <h3>America, Los Angeles</h3>
+            <p>24/7, Global Factory Street, 2nd Cross, San Francisco 93112 +1(629)0753536545
+            </p>
+            <p>support@vancourexpress.com</p>
+        </div>
+    </div>
+    <div class="address-img">
+        <img src="{% static 'courier/media/canada.png' %}" alt="american flag" width="100px" height="100px">
+        <div class="address-description">
+            <h3>Canada, Sakastoon</h3>
+            <p>24/7, Global Factory Street, 2nd Cross, San Francisco 93112 +61(629)075206545</p>
+            <p>support@vancourexpress.com</p>
+        </div>
+    </div>
+    <div class="address-img">
+        <img src="{% static 'courier/media/britain.png' %}" alt="briain flag" width="100px" height="100px">
+        <div class="address-description">
+            <h3>Great Britain</h3>
+            <p>7220 Dean Martin Drive Suite, 46 Yara Boulevard,2nd Cross</p>
+            <p>support@vancourexpress.com</p>
+        </div>
+    </div>
+   </div>
+    <!--google Maps-->
+   
+</div>
+ 
+<footer class="footer-2">
+    <div class="footer-info">
+        <p>CONTACT AND SUPPORT</p>
+        <ul>
+            <li><a href="#"><small>Help and Support</small></a></li>
+            <li><a href="#"><small>FAQs</small></a></li>
+            <li><a href="#"><small>Contact Us</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>LEGAL</p>
+        <ul>
+            <li><a href="#"><small>Terms and Condition</small></a></li>
+            <li><a href="#"><small>Privacy Notice</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>ALERTS</p>
+        <ul>
+            <li><a href=""><small>Fraud Awareness</small></a></li>
+            <li><a href="#"><small>Fraud Support</small></a></li>
+            <li><a href="#"><small>Important Information</small></a></li>
+        </ul>
+    </div>
+    <div class="footer-info">
+        <p>VANCOUR GROUP</p>
+        <ul>
+            <li><a href="#"><small>About US</small></a></li>
+            <li><a href="#"><small>Press</small></a></li>
+            <li><a href="#"><small>Careers</small></a></li>
+            <li><a href="#"><small>Legal Notice</small></a></li>
+        </ul>
+    </div>
+   </footer>
+   <footer class="footer-last-contact">
+        <small>
+            <i>FOLLOW US</i>
+        <i class="fa-brands fa-twitter"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-thin fa-envelope"></i>
+        <i>cookie settings</i>
+        <i>2023  Deutsche Post AG - All rights reserved </i>
+        </small>
+   </footer> 
+</body>
+</html>
